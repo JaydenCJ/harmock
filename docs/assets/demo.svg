@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="430" viewBox="0 0 720 430" font-family="Menlo, Consolas, monospace" font-size="14">
+  <rect width="720" height="430" rx="10" fill="#101418"/>
+  <circle cx="24" cy="22" r="6" fill="#ff5f56"/>
+  <circle cx="44" cy="22" r="6" fill="#ffbd2e"/>
+  <circle cx="64" cy="22" r="6" fill="#27c93f"/>
+  <text x="360" y="27" fill="#8b949e" text-anchor="middle" font-size="12">harmock — record a session once, demo offline forever</text>
+  <g fill="#c9d1d9">
+    <text x="24" y="62"><tspan fill="#7ee787">$</tspan> harmock serve examples/petstore.har</text>
+    <text x="24" y="88" fill="#79c0ff">harmock: serving 9 routes from examples/petstore.har</text>
+    <text x="24" y="108" fill="#79c0ff">harmock: listening on http://127.0.0.1:8080 (strategy=sequential)</text>
+    <text x="24" y="128" fill="#8b949e">harmock: admin at http://127.0.0.1:8080/__harmock__/health</text>
+    <text x="24" y="164"><tspan fill="#7ee787">$</tspan> curl http://127.0.0.1:8080/api/pets?limit=2</text>
+    <text x="24" y="188">{"pets":[{"id":1,"name":"Momo",<tspan fill="#8b949e">…</tspan>}],"total":2}</text>
+    <text x="24" y="224"><tspan fill="#7ee787">$</tspan> curl http://127.0.0.1:8080/api/jobs/42   <tspan fill="#8b949e"># three recordings…</tspan></text>
+    <text x="24" y="248">{"id":42,"status":<tspan fill="#d2a8ff">"pending"</tspan>}</text>
+    <text x="24" y="274"><tspan fill="#7ee787">$</tspan> curl http://127.0.0.1:8080/api/jobs/42</text>
+    <text x="24" y="298">{"id":42,"status":<tspan fill="#d2a8ff">"running"</tspan>}</text>
+    <text x="24" y="324"><tspan fill="#7ee787">$</tspan> curl http://127.0.0.1:8080/api/jobs/42   <tspan fill="#8b949e"># …replayed in order</tspan></text>
+    <text x="24" y="348">{"id":42,"status":<tspan fill="#f778ba">"done"</tspan>}</text>
+    <text x="24" y="384" fill="#8b949e">&lt;- GET /api/jobs/42 200 (entry #5)</text>
+    <text x="24" y="406" fill="#8b949e">no stubs written, no staging backend, no network.</text>
+  </g>
+</svg>
